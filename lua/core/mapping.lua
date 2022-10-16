@@ -5,7 +5,12 @@ local map_cmd = bind.map_cmd
 
 local core_map = {
 	-- Suckless
-	["n|<S-Tab>"] = map_cr("normal za"):with_noremap():with_silent():with_desc("edit: Toggle code fold"),
+	-- Tab equals C-i in vim, which is used to jump forward
+	["n|<S-Tab>"] = map_cr("normal zA"):with_noremap():with_silent():with_desc("edit: Toggle all folds under cursor"),
+	["n|<Space>"] = map_cr("normal za"):with_noremap():with_silent():with_desc("edit: Toggle code fold"),
+	["n|<A-c>"] = map_cr("tabclose"):with_noremap():with_silent():with_desc("edit: Close tab"),
+	["n|<leader>q"] = map_cr("cclose"):with_desc("edit: Close quickfix window"),
+
 	["n|<C-s>"] = map_cu("write"):with_noremap():with_silent():with_desc("edit: Save file"),
 	["n|Y"] = map_cmd("y$"):with_desc("edit: Yank text to EOL"),
 	["n|D"] = map_cmd("d$"):with_desc("edit: Delete text to EOL"),

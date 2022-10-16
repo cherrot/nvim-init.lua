@@ -76,17 +76,6 @@ function autocmd.load_autocmds()
 	local definitions = {
 		lazy = {},
 		bufs = {
-			-- Reload vim config automatically
-			{
-				"BufWritePost",
-				[[$VIM_PATH/{*.vim,*.yaml,vimrc} nested source $MYVIMRC | redraw]],
-			},
-			-- Reload Vim script automatically if setlocal autoread
-			{
-				"BufWritePost,FileWritePost",
-				"*.vim",
-				[[nested if &l:autoread > 0 | source <afile> | echo 'source ' . bufname('%') | endif]],
-			},
 			{ "BufWritePre", "/tmp/*", "setlocal noundofile" },
 			{ "BufWritePre", "COMMIT_EDITMSG", "setlocal noundofile" },
 			{ "BufWritePre", "MERGE_MSG", "setlocal noundofile" },
@@ -106,16 +95,16 @@ function autocmd.load_autocmds()
 		},
 		wins = {
 			-- Highlight current line only on focused window
-			{
-				"WinEnter,BufEnter,InsertLeave",
-				"*",
-				[[if ! &cursorline && &filetype !~# '^\(dashboard\|clap_\)' && ! &pvw | setlocal cursorline | endif]],
-			},
-			{
-				"WinLeave,BufLeave,InsertEnter",
-				"*",
-				[[if &cursorline && &filetype !~# '^\(dashboard\|clap_\)' && ! &pvw | setlocal nocursorline | endif]],
-			},
+			-- {
+			-- 	"WinEnter,BufEnter,InsertLeave",
+			-- 	"*",
+			-- 	[[if ! &cursorline && &filetype !~# '^\(dashboard\|clap_\)' && ! &pvw | setlocal cursorline | endif]],
+			-- },
+			-- {
+			-- 	"WinLeave,BufLeave,InsertEnter",
+			-- 	"*",
+			-- 	[[if &cursorline && &filetype !~# '^\(dashboard\|clap_\)' && ! &pvw | setlocal nocursorline | endif]],
+			-- },
 			-- Attempt to write shada when leaving nvim
 			{
 				"VimLeave",
@@ -142,6 +131,8 @@ function autocmd.load_autocmds()
 				"c,cpp",
 				"nnoremap <leader>h :ClangdSwitchSourceHeaderVSplit<CR>",
 			},
+			{ "FileType", "go", "set noexpandtab" },
+			{ "BufReadPost", "*.star", "set filetype=python" },
 		},
 		yank = {
 			{
@@ -149,6 +140,15 @@ function autocmd.load_autocmds()
 				"*",
 				[[silent! lua vim.highlight.on_yank({higroup="IncSearch", timeout=300})]],
 			},
+		},
+		colorscheme = {
+			-- `:hi Comment` to check current color for Comment (default is #616e88)
+			-- 5% brighter #6d7a96, 10% brighter #7b88a1 from https://github.com/arcticicestudio/nord-emacs/issues/43
+			{ "ColorScheme", "nord", "highlight TSComment guifg=#6d7a96" },
+			-- Folded by default is #4C566A, which is too dark to recognize.
+			{ "ColorScheme", "nord", "highlight Folded gui=italic,bold guifg=#576279" },
+			-- Reverse bold variables set by nord.nvim
+			{ "ColorScheme", "nord", "highlight TSVariable gui=NONE" },
 		},
 	}
 

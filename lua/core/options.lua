@@ -6,6 +6,7 @@ local function load_options()
 		-- directory = global.cache_dir .. "swap/",
 		-- spellfile = global.cache_dir .. "spell/en.uft-8.add",
 		-- viewdir = global.cache_dir .. "view/",
+		-- smartindent = true,
 		autoindent = true,
 		autoread = true,
 		autowrite = true,
@@ -14,6 +15,10 @@ local function load_options()
 		backupskip = "/tmp/*,$TMPDIR/*,$TMP/*,$TEMP/*,*/shm/*,/private/var/*,.vault.vim",
 		breakat = [[\ \	;:,!?]],
 		breakindentopt = "shift:2,min:20",
+		-- If not set clipboard sharing, consider these:
+		-- vim.keymap.set('', '<leader>y', '"+y', { noremap = true })
+		-- vim.keymap.set('', '<leader>p', '"+p', { noremap = true })
+		-- comment this to fix v-block paste containing newline issue
 		clipboard = "unnamedplus",
 		cmdheight = 1, -- 0, 1, 2
 		cmdwinheight = 5,
@@ -64,11 +69,13 @@ local function load_options()
 		shiftwidth = 4,
 		shortmess = "aoOTIcF",
 		showbreak = "↳  ",
-		showcmd = false,
+		-- showcmd = false,
+		showcmd = true,
 		showmode = false,
 		showtabline = 2,
 		sidescrolloff = 5,
-		signcolumn = "yes",
+		-- signcolumn = "yes",
+		signcolumn = "auto", -- "number"
 		smartcase = true,
 		smarttab = true,
 		softtabstop = 4,
@@ -78,7 +85,9 @@ local function load_options()
 		startofline = false,
 		swapfile = false,
 		switchbuf = "usetab,uselast",
-		synmaxcol = 2500,
+		-- Maximum column in which to search for syntax items.
+		-- synmaxcol = 2500,
+		synmaxcol = 512,
 		tabstop = 4,
 		termguicolors = true,
 		timeout = true,
@@ -92,7 +101,9 @@ local function load_options()
 		viewoptions = "folds,cursor,curdir,slash,unix",
 		virtualedit = "block",
 		visualbell = true,
-		whichwrap = "h,l,<,>,[,],~",
+		-- whichwrap = "h,l,<,>,[,],~",
+		-- < and > mean the left/right keys in normal and visual mode. [ and ] mean the left/right arrows in insert and replace mode
+		whichwrap = "<,>,[,],~",
 		wildignore = ".git,.hg,.svn,*.pyc,*.o,*.out,*.jpg,*.jpeg,*.png,*.gif,*.zip,**/tmp/**,*.DS_Store,**/node_modules/**,**/bower_modules/**",
 		wildignorecase = true,
 		-- Do NOT adjust the following option (winblend) if you're using transparent background
@@ -120,7 +131,6 @@ local function load_options()
 		vim.g.python_host_prog = use_if_defined(vim.g.python_host_prog, "python")
 		vim.g.python3_host_prog = use_if_defined(vim.g.python3_host_prog, "python3")
 	end
-
 	for name, value in pairs(global_local) do
 		vim.o[name] = value
 	end
