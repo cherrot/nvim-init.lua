@@ -12,6 +12,8 @@ local mapping = {}
 
 function mapping.lsp(buf)
 	local map = {
+		["n|<leader>F"] = map_cr("lua vim.lsp.buf.format()"):with_buffer(buf):with_desc("lsp: Format buffer"),
+		["n|<C-t>"] = map_cr("Lspsaga outline"):with_buffer(buf):with_desc("lsp: Toggle outline"),
 		-- LSP-related keymaps, work only when event = { "InsertEnter", "LspStart" }
 		["n|<leader>li"] = map_cr("LspInfo"):with_buffer(buf):with_desc("lsp: Info"),
 		["n|<leader>lr"] = map_cr("LspRestart"):with_buffer(buf):with_nowait():with_desc("lsp: Restart"),
