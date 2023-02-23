@@ -72,6 +72,7 @@ return vim.schedule_wrap(function()
 		},
 		context_commentstring = { enable = true, enable_autocmd = false },
 		matchup = { enable = true },
+		playground = { enable = true },
 	})
 	require("nvim-treesitter.install").prefer_git = true
 	if use_ssh then

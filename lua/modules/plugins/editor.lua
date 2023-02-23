@@ -114,6 +114,11 @@ editor["nvim-treesitter/nvim-treesitter"] = {
 			"abecodes/tabout.nvim",
 			config = require("editor.tabout"),
 		},
+		-- View treesitter information directly in Neovim
+		{
+			"nvim-treesitter/playground",
+			cmd = { "TSPlaygroundToggle", "TSHighlightCapturesUnderCursor" },
+		},
 	},
 }
 

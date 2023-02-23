@@ -11,6 +11,7 @@ return {
 				unusedparams = true,
 				unusewrites = true,
 			},
+			gofumpt = true,
 		},
 	},
 }
