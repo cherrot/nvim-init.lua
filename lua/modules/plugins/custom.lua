@@ -15,6 +15,7 @@ custom["qpkorr/vim-renamer"] = {
 custom["chentoast/marks.nvim"] = {
 	lazy = true,
 	event = "BufReadPost",
+	config = require("custom.marks"),
 }
 custom["powerman/vim-plugin-AnsiEsc"] = {
 	lazy = true,
