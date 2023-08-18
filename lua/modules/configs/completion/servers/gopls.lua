@@ -12,6 +12,7 @@ return {
 				unusewrites = true,
 			},
 			gofumpt = true,
+			buildFlags = { "-tags=smoke" },
 		},
 	},
 }
