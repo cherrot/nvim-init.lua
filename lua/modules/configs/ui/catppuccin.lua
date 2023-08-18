@@ -3,10 +3,10 @@ return function()
 	local clear = {}
 
 	require("catppuccin").setup({
-		flavour = "mocha", -- Can be one of: latte, frappe, macchiato, mocha
-		background = { light = "latte", dark = "mocha" },
+		flavour = "frappe", -- Can be one of: latte, frappe, macchiato, mocha
+		background = { light = "latte", dark = "frappe" },
 		dim_inactive = {
-			enabled = false,
+			enabled = true,
 			-- Dim inactive splits/windows/buffers.
 			-- NOT recommended if you use old palette (a.k.a., mocha).
 			shade = "dark",
