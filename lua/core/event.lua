@@ -76,17 +76,6 @@ function autocmd.load_autocmds()
 	local definitions = {
 		lazy = {},
 		bufs = {
-			-- Reload vim config automatically
-			{
-				"BufWritePost",
-				[[$VIM_PATH/{*.vim,*.yaml,vimrc} nested source $MYVIMRC | redraw]],
-			},
-			-- Reload Vim script automatically if setlocal autoread
-			{
-				"BufWritePost,FileWritePost",
-				"*.vim",
-				[[nested if &l:autoread > 0 | source <afile> | echo 'source ' . bufname('%') | endif]],
-			},
 			{ "BufWritePre", "/tmp/*", "setlocal noundofile" },
 			{ "BufWritePre", "COMMIT_EDITMSG", "setlocal noundofile" },
 			{ "BufWritePre", "MERGE_MSG", "setlocal noundofile" },
@@ -105,17 +94,6 @@ function autocmd.load_autocmds()
 			-- {"BufLeave", "*", ":silent !fcitx5-remote -c "}
 		},
 		wins = {
-			-- Highlight current line only on focused window
-			{
-				"WinEnter,BufEnter,InsertLeave",
-				"*",
-				[[if ! &cursorline && &filetype !~# '^\(dashboard\|clap_\)' && ! &pvw | setlocal cursorline | endif]],
-			},
-			{
-				"WinLeave,BufLeave,InsertEnter",
-				"*",
-				[[if &cursorline && &filetype !~# '^\(dashboard\|clap_\)' && ! &pvw | setlocal nocursorline | endif]],
-			},
 			-- Attempt to write shada when leaving nvim
 			{
 				"VimLeave",
