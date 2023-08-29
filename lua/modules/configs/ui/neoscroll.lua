@@ -2,10 +2,10 @@ return function()
 	require("modules.utils").load_plugin("neoscroll", {
 		-- All these keys will be mapped to their corresponding default scrolling animation
 		mappings = {
-			"<C-u>",
-			"<C-d>",
-			"<C-b>",
-			"<C-f>",
+			-- "<C-u>",
+			-- "<C-d>",
+			-- "<C-b>",
+			-- "<C-f>",
 			"<C-y>",
 			"<C-e>",
 			"zt",
