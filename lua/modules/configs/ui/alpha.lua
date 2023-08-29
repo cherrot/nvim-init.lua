@@ -38,7 +38,7 @@ return function()
 		}
 	end
 
-	local leader = " "
+	local leader = "comma"
 	local icons = {
 		documents = require("modules.utils.icons").get("documents", true),
 		git = require("modules.utils.icons").get("git", true),
@@ -48,42 +48,42 @@ return function()
 
 	dashboard.section.buttons.val = {
 		button(
-			"space f c",
+			"comma f c",
 			icons.misc.Neovim .. "Telescope collections",
 			leader,
 			nil,
 			{ noremap = true, silent = true, nowait = true }
 		),
 		button(
-			"space f f",
+			"comma f f",
 			icons.documents.FileFind .. "Find files",
 			leader,
 			nil,
 			{ noremap = true, silent = true, nowait = true }
 		),
 		button(
-			"space f d",
+			"comma f d",
 			icons.ui.FolderWithHeart .. "Retrieve dossiers",
 			leader,
 			nil,
 			{ noremap = true, silent = true, nowait = true }
 		),
 		button(
-			"space f p",
+			"comma f p",
 			icons.documents.Word .. "Find patterns",
 			leader,
 			nil,
 			{ noremap = true, silent = true, nowait = true }
 		),
 		button(
-			"space f g",
+			"comma f g",
 			icons.git.Git .. "Locate Git objects",
 			leader,
 			nil,
 			{ noremap = true, silent = true, nowait = true }
 		),
 		button(
-			"space f m",
+			"comma f m",
 			icons.misc.Ghost .. "Miscellaneous artifacts",
 			leader,
 			nil,
