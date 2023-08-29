@@ -55,4 +55,13 @@ return {
 		:with_noremap()
 		:with_silent()
 		:with_desc("debug: Stop"),
+
+	-- Plugin: telescope
+	["n|<C-p>"] = "", -- cmp already takes this to query keymaps
+	["n|<C-t>"] = map_callback(function()
+			_command_panel()
+		end)
+		:with_noremap()
+		:with_silent()
+		:with_desc("tool: Toggle command panel"),
 }

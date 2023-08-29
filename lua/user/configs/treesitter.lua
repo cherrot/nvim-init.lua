@@ -1,0 +1,3 @@
+return {
+	playground = { enable = true },
+}

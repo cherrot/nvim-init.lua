@@ -126,6 +126,11 @@ editor["nvim-treesitter/nvim-treesitter"] = {
 			"JoosepAlviste/nvim-ts-context-commentstring",
 			config = require("editor.ts-context-commentstring"),
 		},
+		-- View treesitter information directly in Neovim
+		{
+			"nvim-treesitter/playground",
+			cmd = { "TSPlaygroundToggle", "TSHighlightCapturesUnderCursor" },
+		},
 	},
 }
 
