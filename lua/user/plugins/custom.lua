@@ -5,15 +5,7 @@ custom["pysan3/fcitx5.nvim"] = {
 	lazy = true,
 	event = "BufReadPost",
 	cond = vim.fn.executable("fcitx5-remote") == 1,
-	config = require("tool.fcitx5"),
-}
-custom["rhysd/git-messenger.vim"] = {
-	lazy = true,
-	cmd = "GitMessenger",
-	keys = "<leader>gm",
-	config = function()
-		vim.g.git_messenger_always_into_popup = true
-	end,
+	config = require("user.configs.custom.fcitx5"),
 }
 custom["qpkorr/vim-renamer"] = {
 	lazy = true,
