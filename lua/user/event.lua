@@ -1,7 +1,11 @@
 local definitions = {
 	ft = {
-		{ "FileType", "go", "set noexpandtab" },
+		{ "FileType", "go", "set noexpandtab shiftwidth=4" },
 		{ "BufReadPost", "*.star", "set filetype=python" },
+		{ "FileType", "javascript", "set expandtab shiftwidth=2" },
+		{ "FileType", "javascriptreact", "set expandtab shiftwidth=2" },
+		{ "FileType", "typescript", "set expandtab shiftwidth=2" },
+		{ "FileType", "typescriptreact", "set expandtab shiftwidth=2" },
 	},
 	colorscheme = {
 		-- `:hi Comment` to check current color for Comment (default is #616e88)
