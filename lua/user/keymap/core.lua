@@ -2,12 +2,20 @@ local bind = require("keymap.bind")
 local map_cr = bind.map_cr
 local map_cmd = bind.map_cmd
 
+function ToggleQuickfix()
+	if vim.fn.len(vim.fn.filter(vim.fn.getwininfo(), "v:val.quickfix")) == 0 then
+		vim.cmd("copen")
+	else
+		vim.cmd("cclose")
+	end
+end
+
 return {
 	-- Tab equals C-i in vim, which is used to jump forward
 	["n|<S-Tab>"] = map_cr("normal zA"):with_noremap():with_silent():with_desc("edit: Toggle all folds under cursor"),
 	["n|<Space>"] = map_cr("normal za"):with_noremap():with_silent():with_desc("edit: Toggle code fold"),
 	["n|<A-c>"] = map_cr("tabclose"):with_noremap():with_silent():with_desc("edit: Close tab"),
-	["n|<leader>q"] = map_cr("cclose"):with_desc("edit: Close quickfix window"),
+	["n|<leader>q"] = map_cr("lua ToggleQuickfix()"):with_desc("edit: Toggle quickfix window"),
 
 	["t|<C-h>"] = "",
 	["t|<C-l>"] = "",
