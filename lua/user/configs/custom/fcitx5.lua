@@ -1,5 +1,5 @@
 local en = "keyboard-us"
-local cn = "pinyin"
+-- local cn = "pinyin"
 
 return function()
 	require("modules.utils").load_plugin("fcitx5", {

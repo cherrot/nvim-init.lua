@@ -64,4 +64,15 @@ return {
 		:with_noremap()
 		:with_silent()
 		:with_desc("tool: Toggle command panel"),
+
+	-- Plugin: marks
+	["n|mm"] = map_cr("lua require('marks').toggle()"):with_noremap():with_silent():with_desc("marks: Toggle"),
+	["n|mx"] = map_cr("lua require('marks').delete_buf()")
+		:with_noremap()
+		:with_silent()
+		:with_desc("marks: Delete buffer"),
+	["n|m:"] = map_cr("lua require('marks').preview()"):with_noremap():with_silent():with_desc("marks: Preview"),
+	["n|m["] = map_cr("lua require('marks').prev()"):with_noremap():with_silent():with_desc("marks: Previous"),
+	["n|m]"] = map_cr("lua require('marks').next()"):with_noremap():with_silent():with_desc("marks: Next"),
+	["n|ml"] = map_cr("MarksListAll"):with_noremap():with_silent():with_desc("marks: List marks in all open buffers"),
 }
