@@ -20,5 +20,10 @@ custom["powerman/vim-plugin-AnsiEsc"] = {
 	lazy = true,
 	cmd = "AnsiEsc",
 }
+custom["towolf/vim-helm"] = {
+	lazy = true,
+	-- event = "BufReadPost",
+	ft = "yaml",
+}
 
 return custom
